@@ -55,7 +55,7 @@ public abstract class BaseTest {
     public static void abrirTesteDeLogin() throws IOException {
         sparkReporterUtil = new SparkReporterUtil(driver);
 
-        System.setProperty("webdriver.chrome.driver", Constantes.PATH_CHROME_DRIVER);
+        //System.setProperty("webdriver.chrome.driver", Constantes.PATH_CHROME_DRIVER);
 
         String[] argumentosOptions = {"start-maximized", "--incognito" /*,--headless" */};
         

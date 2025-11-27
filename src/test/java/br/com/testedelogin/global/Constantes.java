@@ -10,7 +10,7 @@ public class Constantes {
     public final static int TEMPO_MAXIMO_ESPERA = 20;
 
     /*Constante da página inicial da tela de login. */
-    public static final String URL_BASE_LOGIN = "https://testedelogin.com.br/testedelogin/public/login"; 
+    public static final String URL_BASE_LOGIN = "https://demo.nopcommerce.com"; 
 
     /*Constante da página inicial do Teste de Login. */
     public static final String URL_INICIAL_TESTE_DE_LOGIN = "https://testedelogin.com.br/testedelogin/private";
