@@ -1,24 +1,21 @@
 <project xmlns="https://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>br.com.testedelogin</groupId>
-    <artifactId>automation-testedelogin</artifactId>
+    <groupId>br.com.webautomation.selenium</groupId>
+    <artifactId>web-automation-selenium-java</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>automation-testedelogin</name>
+    <name>Web Automation Selenium Java</name>
 
-    <!-- ================================================= -->
-    <!--                     PROPERTIES                    -->
-    <!-- ================================================= -->
+
+    <!-- ========== Project Properties ========== -->
     <properties>
-        <!-- Java Version -->
         <java.version>20</java.version>
 
-        <!-- Global Dependency Versions -->
         <selenium.version>4.28.0</selenium.version>
         <junit.version>4.13.2</junit.version>
         <hamcrest.version>2.2</hamcrest.version>
@@ -27,22 +24,15 @@
 
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
-    <!-- ================================================= -->
-    <!--                 DEPENDENCY DOCS                   -->
-    <!-- ================================================= -->
-    <!-- Selenium Docs:        https://www.selenium.dev/documentation/ -->
-    <!-- JUnit Docs:           https://junit.org/junit4/ -->
-    <!-- Hamcrest Docs:        http://hamcrest.org/JavaHamcrest/ -->
-    <!-- ExtentReports Docs:   https://www.extentreports.com/docs/versions/5/java/index.html -->
-    <!-- Commons IO Docs:      https://commons.apache.org/proper/commons-io/ -->
-
+    <!-- ========== Dependencies ========== -->
     <dependencies>
 
-        <!-- JUnit 4 (Test Runner) -->
+        <!-- Test Framework -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -50,7 +40,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Hamcrest (usado internamente pelo JUnit) -->
+        <!-- Assertions -->
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest</artifactId>
@@ -58,21 +48,21 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Selenium WebDriver + Selenium Manager -->
+        <!-- Selenium WebDriver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
 
-        <!-- ExtentReports (Relatórios HTML) -->
+        <!-- HTML Reports -->
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
             <version>${extentreports.version}</version>
         </dependency>
 
-        <!-- Apache Commons IO (Manipulação de arquivos e screenshots) -->
+        <!-- File Utilities -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
