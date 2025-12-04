@@ -1,4 +1,4 @@
-package br.com.testedelogin.utils;
+package br.com.webautomationselenium.utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.io.FileHandler;
 
-import br.com.testedelogin.global.Constants;
+import br.com.webautomationselenium.global.Constants;
 
 /**
  * Utility class responsible for browser-related base operations,

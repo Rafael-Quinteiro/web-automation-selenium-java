@@ -1,6 +1,7 @@
-package br.com.testedelogin.builders;
+package br.com.webautomationselenium.builders;
 
-import br.com.testedelogin.data.DataForms;
+import br.com.webautomationselenium.builders.DataFormsBuilder;
+import br.com.webautomationselenium.data.DataForms;
 
 /**
  * Builder class responsible for creating {@link DataForms} objects

@@ -1,4 +1,4 @@
-package br.com.testedelogin.core;
+package br.com.webautomationselenium.core;
 
 import java.util.logging.Level;
 
@@ -16,9 +16,9 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
-import br.com.testedelogin.config.ConfigManager;
-import br.com.testedelogin.report.SparkReporterUtil;
-import br.com.testedelogin.utils.MetodoBaseUtil;
+import br.com.webautomationselenium.config.ConfigManager;
+import br.com.webautomationselenium.report.SparkReporterUtil;
+import br.com.webautomationselenium.utils.MetodoBaseUtil;
 
 /**
  * Base class for all test classes in the project.

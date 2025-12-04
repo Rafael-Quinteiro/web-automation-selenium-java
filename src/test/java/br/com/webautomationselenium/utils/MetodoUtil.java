@@ -1,4 +1,4 @@
-package br.com.testedelogin.utils;
+package br.com.webautomationselenium.utils;
 
 import java.time.Duration;
 
@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import br.com.testedelogin.config.ConfigManager;
+import br.com.webautomationselenium.config.ConfigManager;
 
 /**
  * Utility class responsible for WebDriver interaction operations.

@@ -1,4 +1,4 @@
-package br.com.testedelogin.config;
+package br.com.webautomationselenium.config;
 
 import java.io.IOException;
 import java.io.InputStream;

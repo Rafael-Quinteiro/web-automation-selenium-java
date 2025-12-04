@@ -1,12 +1,12 @@
-package br.com.testedelogin.interactions;
+package br.com.webautomationselenium.interactions;
 
 import static org.junit.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
 
-import br.com.testedelogin.global.Constants;
-import br.com.testedelogin.pages.LoginPO;
-import br.com.testedelogin.utils.MetodoUtil;
+import br.com.webautomationselenium.global.Constants;
+import br.com.webautomationselenium.pages.LoginPO;
+import br.com.webautomationselenium.utils.MetodoUtil;
 
 /**
  * Handles all interactions related to the login process.

@@ -1,11 +1,11 @@
-package br.com.testedelogin.interactions;
+package br.com.webautomationselenium.interactions;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
-import br.com.testedelogin.global.Constants;
-import br.com.testedelogin.pages.OrderPO;
-import br.com.testedelogin.utils.MetodoUtil;
+import br.com.webautomationselenium.global.Constants;
+import br.com.webautomationselenium.pages.OrderPO;
+import br.com.webautomationselenium.utils.MetodoUtil;
 
 /**
  * Handles all interactions related to the order and checkout process.

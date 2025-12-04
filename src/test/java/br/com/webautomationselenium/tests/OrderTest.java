@@ -1,4 +1,4 @@
-package br.com.testedelogin.tests;
+package br.com.webautomationselenium.tests;
 
 import java.io.IOException;
 
@@ -8,15 +8,15 @@ import org.junit.Test;
 
 import com.aventstack.extentreports.ExtentTest;
 
-import br.com.testedelogin.builders.DataFormsBuilder;
-import br.com.testedelogin.config.ConfigManager;
-import br.com.testedelogin.core.BaseTest;
-import br.com.testedelogin.data.DataForms;
-import br.com.testedelogin.global.Constants;
-import br.com.testedelogin.interactions.LoginInteractions;
-import br.com.testedelogin.interactions.OrderInteractions;
-import br.com.testedelogin.report.SparkReporterUtil;
-import br.com.testedelogin.utils.MetodoBaseUtil;
+import br.com.webautomationselenium.builders.DataFormsBuilder;
+import br.com.webautomationselenium.config.ConfigManager;
+import br.com.webautomationselenium.core.BaseTest;
+import br.com.webautomationselenium.data.DataForms;
+import br.com.webautomationselenium.global.Constants;
+import br.com.webautomationselenium.interactions.LoginInteractions;
+import br.com.webautomationselenium.interactions.OrderInteractions;
+import br.com.webautomationselenium.report.SparkReporterUtil;
+import br.com.webautomationselenium.utils.MetodoBaseUtil;
 
 /**
  * Test class responsible for validating the order flow.

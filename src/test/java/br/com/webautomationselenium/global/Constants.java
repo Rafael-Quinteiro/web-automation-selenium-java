@@ -1,4 +1,4 @@
-package br.com.testedelogin.global;
+package br.com.webautomationselenium.global;
 
 /**
  * Centralized class that stores application-wide constants

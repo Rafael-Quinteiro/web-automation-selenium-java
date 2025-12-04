@@ -1,4 +1,4 @@
-package br.com.testedelogin.data;
+package br.com.webautomationselenium.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

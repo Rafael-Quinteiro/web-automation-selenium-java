@@ -1,4 +1,4 @@
-package br.com.testedelogin.report;
+package br.com.webautomationselenium.report;
 
 import java.io.File;
 
@@ -10,8 +10,8 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 
-import br.com.testedelogin.global.Constants;
-import br.com.testedelogin.utils.MetodoBaseUtil;
+import br.com.webautomationselenium.global.Constants;
+import br.com.webautomationselenium.utils.MetodoBaseUtil;
 
 /**
  * Utility class responsible for handling test reporting

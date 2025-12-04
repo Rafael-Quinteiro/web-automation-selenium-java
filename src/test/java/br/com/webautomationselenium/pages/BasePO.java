@@ -1,4 +1,4 @@
-package br.com.testedelogin.pages;
+package br.com.webautomationselenium.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
