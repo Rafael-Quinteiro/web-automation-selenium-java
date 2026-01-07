@@ -1,20 +1,26 @@
-package br.com.webautomationselenium.utils;
+package br.com.webautomationselenium.interactions;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.com.webautomationselenium.config.ConfigManager;
+import br.com.webautomationselenium.global.Constants;
 
 /**
  * Utility class responsible for WebDriver interaction operations.
  */
-public class MetodoUtil {
+public class DriverActions {
 
     protected final WebDriver driver;
     protected final WebDriverWait wait;
@@ -24,7 +30,7 @@ public class MetodoUtil {
      * 
      * @param driver WebDriver instance
      */
-    public MetodoUtil(WebDriver driver) {
+    public DriverActions(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(
                 driver,
@@ -66,6 +72,32 @@ public class MetodoUtil {
         new Actions(driver)
                 .scrollToElement(element)
                 .perform();
+    }
+
+    /* ============================
+     * SCREENSHOT
+     * ============================ */
+
+    /**
+     * Takes a screenshot and saves it in the default screenshot folder.
+     *
+     * @param testDescription Description used to name the screenshot file
+     * @return Absolute path of the saved screenshot
+     */
+    public String takeScreenshot(String testDescription) {
+        File destinationFile = new File(
+                Constants.SCREENSHOT_FOLDER_PATH + testDescription + ".png");
+
+        File sourceFile = ((TakesScreenshot) driver)
+                .getScreenshotAs(OutputType.FILE);
+
+        try {
+            FileHandler.copy(sourceFile, destinationFile);
+        } catch (IOException e) {
+            throw new RuntimeException("Error while saving screenshot", e);
+        }
+
+        return destinationFile.getAbsolutePath();
     }
 
     /* ============================

@@ -17,8 +17,8 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import br.com.webautomationselenium.config.ConfigManager;
-import br.com.webautomationselenium.report.SparkReporterUtil;
-import br.com.webautomationselenium.utils.MetodoBaseUtil;
+import br.com.webautomationselenium.report.SparkReporter;
+import br.com.webautomationselenium.utils.Utils;
 
 /**
  * Base class for all test classes in the project.
@@ -32,7 +32,7 @@ public abstract class BaseTest {
     protected static ExtentReports extent;
     protected static ExtentSparkReporter spark;
     protected static LoggingPreferences logPrefs;
-    protected static SparkReporterUtil sparkReporterUtil;
+    protected static SparkReporter sparkReporter;
 
     /**
      * Initializes all shared test configurations.
@@ -42,12 +42,12 @@ public abstract class BaseTest {
     public static void setUpTestSuite() {
 
         // REPORT CONFIGURATION (RUNS ONCE)
-        sparkReporterUtil = new SparkReporterUtil(null);
-        sparkReporterUtil.createScreenshotDirectory();
+        sparkReporter = new SparkReporter(null);
+        sparkReporter.createScreenshotDirectory();
 
         extent = new ExtentReports();
 
-        spark = new ExtentSparkReporter(MetodoBaseUtil.getHtmlReportName());
+        spark = new ExtentSparkReporter(Utils.getHtmlReportName());
         spark.config().setTheme(Theme.DARK);
         extent.attachReporter(spark);
 
@@ -76,7 +76,7 @@ public abstract class BaseTest {
         driver = new ChromeDriver(options);
 
         // BIND DRIVER TO REPORTER
-        sparkReporterUtil.setDriver(driver);
+        sparkReporter.setDriver(driver);
 
         // CLEAR COOKIES AND OPEN BASE URL
         driver.manage().deleteAllCookies();

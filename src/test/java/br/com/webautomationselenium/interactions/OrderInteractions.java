@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 
 import br.com.webautomationselenium.global.Constants;
 import br.com.webautomationselenium.pages.OrderPO;
-import br.com.webautomationselenium.utils.MetodoUtil;
 
 /**
  * Handles all interactions related to the order and checkout process.
@@ -14,7 +13,7 @@ import br.com.webautomationselenium.utils.MetodoUtil;
  */
 public class OrderInteractions {
 
-    private MetodoUtil metodoUtil;
+    private DriverActions driverActions;
     private OrderPO orderPO;  
     
     /**
@@ -23,7 +22,7 @@ public class OrderInteractions {
      * @param driver WebDriver instance used to control the browser.
      */
     public OrderInteractions(WebDriver driver) {
-        this.metodoUtil = new MetodoUtil(driver);
+        this.driverActions = new DriverActions(driver);
         this.orderPO = new OrderPO(driver);
     }
 
@@ -38,7 +37,7 @@ public class OrderInteractions {
      * Selects the Mac subcategory.
      */
     public void selectMacSubCategory() {
-        metodoUtil.waitUntilVisible(orderPO.linkMac);
+        driverActions.waitUntilVisible(orderPO.linkMac);
         orderPO.linkMac.click();
     }
 
@@ -48,8 +47,8 @@ public class OrderInteractions {
     public void addProductToCart() {
         orderPO.btnAddToCart.click();
 
-        metodoUtil.waitUntilVisible(orderPO.divAlertMessageSuccess);
-        metodoUtil.getText(orderPO.divAlertMessageSuccess)
+        driverActions.waitUntilVisible(orderPO.divAlertMessageSuccess);
+        driverActions.getText(orderPO.divAlertMessageSuccess)
                   .contains(Constants.ORDER_SUCCESS_MESSAGE);
     }
 
@@ -57,15 +56,15 @@ public class OrderInteractions {
      * Navigates to the checkout screen.
      */
     public void navigateToCheckout() {
-        metodoUtil.waitUntilVisible(orderPO.btnCheckout);
+        driverActions.waitUntilVisible(orderPO.btnCheckout);
         orderPO.btnCheckout.click();
 
-        metodoUtil.waitUntilVisible(orderPO.linkCheckout);
+        driverActions.waitUntilVisible(orderPO.linkCheckout);
         orderPO.linkCheckout.click();
 
-        metodoUtil.waitUntilVisible(orderPO.divCheckout);
+        driverActions.waitUntilVisible(orderPO.divCheckout);
         Assert.assertEquals(
-                metodoUtil.getText(orderPO.divCheckout),
+                driverActions.getText(orderPO.divCheckout),
                 Constants.CHECKOUT_TEXT
         );
     }
@@ -74,7 +73,7 @@ public class OrderInteractions {
      * Confirms the billing details using the default address.
      */
     public void confirmBillingDetails() {
-        metodoUtil.waitUntilClickable(orderPO.btnContinueBillingDetails);
+        driverActions.waitUntilClickable(orderPO.btnContinueBillingDetails);
         orderPO.btnContinueBillingDetails.click();
     }
 
@@ -82,7 +81,7 @@ public class OrderInteractions {
      * Selects the option to insert a new billing address.
      */
     public void selectNewBillingAddress() {
-        metodoUtil.waitUntilClickable(orderPO.btnNewAddressBillingDetails);
+        driverActions.waitUntilClickable(orderPO.btnNewAddressBillingDetails);
         orderPO.btnNewAddressBillingDetails.click();
     }
 
@@ -112,20 +111,20 @@ public class OrderInteractions {
             String regionState
     ) throws InterruptedException {
 
-        metodoUtil.waitUntilClickable(orderPO.inputFirstName);
-        metodoUtil.writeInput(orderPO.inputFirstName, firstName);
+        driverActions.waitUntilClickable(orderPO.inputFirstName);
+        driverActions.writeInput(orderPO.inputFirstName, firstName);
 
-        metodoUtil.writeInput(orderPO.inputLastName, lastName);
-        metodoUtil.writeInput(orderPO.inputCompany, company);
-        metodoUtil.writeInput(orderPO.inputAddress1, address1);
-        metodoUtil.writeInput(orderPO.inputAddress2, address2);
-        metodoUtil.writeInput(orderPO.inputCity, city);
-        metodoUtil.writeInput(orderPO.inputPostCode, postCode);
+        driverActions.writeInput(orderPO.inputLastName, lastName);
+        driverActions.writeInput(orderPO.inputCompany, company);
+        driverActions.writeInput(orderPO.inputAddress1, address1);
+        driverActions.writeInput(orderPO.inputAddress2, address2);
+        driverActions.writeInput(orderPO.inputCity, city);
+        driverActions.writeInput(orderPO.inputPostCode, postCode);
 
-        metodoUtil.typeLetterByLetter(country, orderPO.inputCountry, 500);
-        metodoUtil.typeLetterByLetter(regionState, orderPO.inputRegionState, 500);
+        driverActions.typeLetterByLetter(country, orderPO.inputCountry, 500);
+        driverActions.typeLetterByLetter(regionState, orderPO.inputRegionState, 500);
         
-        metodoUtil.scrollToElement(orderPO.btnContinueBillingDetails);
+        driverActions.scrollToElement(orderPO.btnContinueBillingDetails);
         orderPO.btnContinueBillingDetails.click();
     }
 
@@ -133,7 +132,7 @@ public class OrderInteractions {
      * Confirms the delivery details step.
      */
     public void confirmDeliveryDetails() {
-        metodoUtil.waitUntilClickable(orderPO.btnContinueDeliveryDetails);
+        driverActions.waitUntilClickable(orderPO.btnContinueDeliveryDetails);
         orderPO.btnContinueDeliveryDetails.click();
     }
 
@@ -141,7 +140,7 @@ public class OrderInteractions {
      * Confirms the delivery method.
      */
     public void confirmDeliveryMethod() {
-        metodoUtil.waitUntilClickable(orderPO.btnContinueDeliveryMethod);
+        driverActions.waitUntilClickable(orderPO.btnContinueDeliveryMethod);
         orderPO.btnContinueDeliveryMethod.click();
     }
 
@@ -149,7 +148,7 @@ public class OrderInteractions {
      * Selects the payment method and accepts the terms and conditions.
      */
     public void selectPaymentMethod() {
-        metodoUtil.waitUntilClickable(orderPO.checkTermosConditions);
+        driverActions.waitUntilClickable(orderPO.checkTermosConditions);
         orderPO.checkTermosConditions.click();
 
         orderPO.btnPaymentMethod.click();
@@ -159,13 +158,13 @@ public class OrderInteractions {
      * Confirms the order and validates the success message.
      */
     public void confirmOrder() {
-        metodoUtil.waitUntilInvisible(orderPO.divBankTransferInstructions);
+        driverActions.waitUntilInvisible(orderPO.divBankTransferInstructions);
 
-        metodoUtil.waitUntilClickable(orderPO.btnConfirmOrder);
+        driverActions.waitUntilClickable(orderPO.btnConfirmOrder);
         orderPO.btnConfirmOrder.click(); 
 
-        metodoUtil.waitUntilVisible(orderPO.divOrderSuccess);
-        metodoUtil.getText(orderPO.divOrderSuccess)
+        driverActions.waitUntilVisible(orderPO.divOrderSuccess);
+        driverActions.getText(orderPO.divOrderSuccess)
                   .contains(Constants.ORDER_SUCCESS_MESSAGE);
     }
 }

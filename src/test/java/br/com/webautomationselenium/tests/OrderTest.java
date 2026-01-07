@@ -16,9 +16,9 @@ import br.com.webautomationselenium.data.DataForms;
 import br.com.webautomationselenium.global.Constants;
 import br.com.webautomationselenium.interactions.LoginInteractions;
 import br.com.webautomationselenium.interactions.OrderInteractions;
-import br.com.webautomationselenium.report.SparkReporterUtil;
+import br.com.webautomationselenium.report.SparkReporter;
 import br.com.webautomationselenium.suits.AllSmokeTests;
-import br.com.webautomationselenium.utils.MetodoBaseUtil;
+import br.com.webautomationselenium.utils.Utils;
 
 /**
  * Test class responsible for validating the order flow.
@@ -30,7 +30,7 @@ public class OrderTest extends BaseTest {
     private DataFormsBuilder dataFormsBuilder;
     private DataForms dataForms;
 
-    private static SparkReporterUtil sparkReporterUtil;
+    private static SparkReporter sparkReporter;
 
     /**
      * Initializes test instances and performs login before each test execution.
@@ -40,7 +40,7 @@ public class OrderTest extends BaseTest {
 
         orderInteractions = new OrderInteractions(driver);
         loginInteractions = new LoginInteractions(driver);
-        sparkReporterUtil = new SparkReporterUtil(driver);
+        sparkReporter = new SparkReporter(driver);
 
         dataFormsBuilder = new DataFormsBuilder();
         dataForms = dataFormsBuilder.build();
@@ -61,7 +61,7 @@ public class OrderTest extends BaseTest {
      */
     @AfterClass
     public static void generateTestReport() throws IOException {
-        new MetodoBaseUtil(driver)
+        new Utils()
             .moveHtmlReportToDirectory(
                 Constants.ORDER_REPORT_PATH,
                 Constants.ORDER_ROUTINE_DESCRIPTION
@@ -165,10 +165,10 @@ public class OrderTest extends BaseTest {
             selectPaymentMethod();
             confirmOrder();
 
-            sparkReporterUtil.markTestAsPassed(test);
+            sparkReporter.markTestAsPassed(test);
 
         } catch (Throwable t) {
-            sparkReporterUtil.finalizeFailedTest(test, screenshotName, t);
+            sparkReporter.finalizeFailedTest(test, screenshotName, t);
         }
     }
 
@@ -210,10 +210,10 @@ public class OrderTest extends BaseTest {
             selectPaymentMethod();
             confirmOrder();
 
-            sparkReporterUtil.markTestAsPassed(test);
+            sparkReporter.markTestAsPassed(test);
 
         } catch (Throwable t) {
-            sparkReporterUtil.finalizeFailedTest(test, screenshotName, t);
+            sparkReporter.finalizeFailedTest(test, screenshotName, t);
         }
     }
 
@@ -255,10 +255,10 @@ public class OrderTest extends BaseTest {
             selectPaymentMethod();
             confirmOrder();
 
-            sparkReporterUtil.markTestAsPassed(test);
+            sparkReporter.markTestAsPassed(test);
 
         } catch (Throwable t) {
-            sparkReporterUtil.finalizeFailedTest(test, screenshotName, t);
+            sparkReporter.finalizeFailedTest(test, screenshotName, t);
         }
     }
 }

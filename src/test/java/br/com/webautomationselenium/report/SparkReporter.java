@@ -11,16 +11,16 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 import br.com.webautomationselenium.global.Constants;
-import br.com.webautomationselenium.utils.MetodoBaseUtil;
+import br.com.webautomationselenium.interactions.DriverActions;
 
 /**
  * Utility class responsible for handling test reporting
  * and screenshot capture using Extent Reports.
  */
-public class SparkReporterUtil {
+public class SparkReporter {
 
     private WebDriver driver;
-    private static MetodoBaseUtil baseUtil;
+    private static DriverActions driverActions;
 
     /**
      * Sets the WebDriver instance.
@@ -36,7 +36,7 @@ public class SparkReporterUtil {
      *
      * @param driver WebDriver used during test execution.
      */
-    public SparkReporterUtil(WebDriver driver) {
+    public SparkReporter(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -141,11 +141,11 @@ public class SparkReporterUtil {
             String testDescription,
             Throwable throwable) {
 
-        baseUtil = new MetodoBaseUtil(driver);
+        driverActions = new DriverActions(driver);
 
         String path = Constants.SCREENSHOT_FOLDER_PATH;
 
-        baseUtil.takeScreenshot(path);
+        driverActions.takeScreenshot(path);
 
         markTestAsFailed(test);
         logTestFailure(test, throwable);
@@ -153,7 +153,7 @@ public class SparkReporterUtil {
         test.fail(
             MediaEntityBuilder
                 .createScreenCaptureFromPath(
-                        baseUtil.takeScreenshot(path))
+                        driverActions.takeScreenshot(path))
                 .build()
         );
     }

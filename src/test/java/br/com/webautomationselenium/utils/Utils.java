@@ -9,51 +9,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.io.FileHandler;
-
 import br.com.webautomationselenium.global.Constants;
 
 /**
  * Utility class responsible for browser-related base operations,
  * such as screenshots and report file management.
  */
-public class MetodoBaseUtil {
-
-    protected final WebDriver driver;
-
-    /**
-     * Constructor.
-     *
-     * @param driver WebDriver instance
-     */
-    public MetodoBaseUtil(WebDriver driver) {
-        this.driver = driver;
-    }
-
-    /**
-     * Takes a screenshot and saves it in the default screenshot folder.
-     *
-     * @param testDescription Description used to name the screenshot file
-     * @return Absolute path of the saved screenshot
-     */
-    public String takeScreenshot(String testDescription) {
-        File destinationFile = new File(
-                Constants.SCREENSHOT_FOLDER_PATH + testDescription + ".png");
-
-        File sourceFile = ((TakesScreenshot) driver)
-                .getScreenshotAs(OutputType.FILE);
-
-        try {
-            FileHandler.copy(sourceFile, destinationFile);
-        } catch (IOException e) {
-            throw new RuntimeException("Error while saving screenshot", e);
-        }
-
-        return destinationFile.getAbsolutePath();
-    }
+public class Utils {
 
     /**
      * Moves the generated HTML report file to a specific directory.

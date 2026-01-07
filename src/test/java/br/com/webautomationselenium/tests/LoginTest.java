@@ -12,8 +12,8 @@ import br.com.webautomationselenium.config.ConfigManager;
 import br.com.webautomationselenium.core.BaseTest;
 import br.com.webautomationselenium.global.Constants;
 import br.com.webautomationselenium.interactions.LoginInteractions;
-import br.com.webautomationselenium.report.SparkReporterUtil;
-import br.com.webautomationselenium.utils.MetodoBaseUtil;
+import br.com.webautomationselenium.report.SparkReporter;
+import br.com.webautomationselenium.utils.Utils;
 
 /**
  * Test class responsible for validating the login functionality.
@@ -21,7 +21,7 @@ import br.com.webautomationselenium.utils.MetodoBaseUtil;
 public class LoginTest extends BaseTest {
 
     private LoginInteractions loginInteractions;
-    private SparkReporterUtil sparkReporterUtil;
+    private SparkReporter sparkReporter;
 
     /**
      * Initializes test instances before each test execution.
@@ -29,7 +29,7 @@ public class LoginTest extends BaseTest {
     @Before
     public void setUpTest() {
         loginInteractions = new LoginInteractions(driver);
-        sparkReporterUtil = new SparkReporterUtil(driver);
+        sparkReporter = new SparkReporter(driver);
         setReportTitle(Constants.LOGIN_ROUTINE_DESCRIPTION);
     }
 
@@ -41,7 +41,7 @@ public class LoginTest extends BaseTest {
      */
     @AfterClass
     public static void generateTestReport() throws IOException {
-        new MetodoBaseUtil(driver)
+        new Utils()
             .moveHtmlReportToDirectory(
                 Constants.LOGIN_REPORT_PATH, 
                 Constants.LOGIN_ROUTINE_DESCRIPTION
@@ -95,10 +95,10 @@ public class LoginTest extends BaseTest {
                 ConfigManager.getLoginPassword()
             );
 
-            sparkReporterUtil.markTestAsPassed(test);
+            sparkReporter.markTestAsPassed(test);
 
         } catch (Throwable t) {
-            sparkReporterUtil.finalizeFailedTest(test, screenshotName, t);
+            sparkReporter.finalizeFailedTest(test, screenshotName, t);
         }
     }
 }
