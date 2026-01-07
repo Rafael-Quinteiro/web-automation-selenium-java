@@ -9,9 +9,9 @@ import org.junit.experimental.categories.Category;
 
 import com.aventstack.extentreports.ExtentTest;
 
+import br.com.webautomationselenium.base.BaseTest;
 import br.com.webautomationselenium.builders.DataFormsBuilder;
 import br.com.webautomationselenium.config.ConfigManager;
-import br.com.webautomationselenium.core.BaseTest;
 import br.com.webautomationselenium.data.DataForms;
 import br.com.webautomationselenium.global.Constants;
 import br.com.webautomationselenium.interactions.LoginInteractions;

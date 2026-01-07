@@ -1,4 +1,4 @@
-package br.com.webautomationselenium.core;
+package br.com.webautomationselenium.base;
 
 import java.util.logging.Level;
 
