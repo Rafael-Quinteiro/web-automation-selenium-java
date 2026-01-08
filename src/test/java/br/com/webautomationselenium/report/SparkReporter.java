@@ -136,24 +136,18 @@ public class SparkReporter {
      * @param testDescription Description used to name the screenshot file.
      * @param throwable Exception that caused the failure.
      */
-    public void finalizeFailedTest(
-            ExtentTest test,
-            String testDescription,
-            Throwable throwable) {
+    public void finalizeFailedTest(ExtentTest test, String screenshotName, Throwable throwable) {
 
         driverActions = new DriverActions(driver);
 
-        String path = Constants.SCREENSHOT_FOLDER_PATH;
-
-        driverActions.takeScreenshot(path);
+        String screenshotPath = driverActions.takeScreenshot(screenshotName);
 
         markTestAsFailed(test);
         logTestFailure(test, throwable);
 
         test.fail(
             MediaEntityBuilder
-                .createScreenCaptureFromPath(
-                        driverActions.takeScreenshot(path))
+                .createScreenCaptureFromPath(screenshotPath)
                 .build()
         );
     }
